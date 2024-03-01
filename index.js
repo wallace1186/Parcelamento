@@ -11,11 +11,11 @@ function calcularParcelas() {
       for (let i = 0; i < qtdParcelas; i++) {
          console.log((
             ` Parcela ${
-               qtdParcelas / qtdParcelas + i
+               i + 1
              }/${qtdParcelas } parcelas de R$ ${calcularParcelas.toFixed(2)} `
              ))
              alert ((` Parcela ${
-               qtdParcelas / qtdParcelas + i
+               i + 1
              }/${qtdParcelas } parcelas de R$ ${calcularParcelas.toFixed(2)} `))
           }
        }
@@ -25,12 +25,12 @@ function calcularParcelas() {
         for (let i = 0; i < qtdParcelas; i++) {
           console.log((
              ` Parcela ${
-               qtdParcelas / qtdParcelas + i
+               i + 1
               }/${qtdParcelas} parcelas de R$ ${parcelasSemEntrada.toFixed(2)} `
               ))
               alert ((
                ` Parcela ${
-                 qtdParcelas / qtdParcelas + i
+                 i + 1
                 }/${qtdParcelas} parcelas de R$ ${parcelasSemEntrada.toFixed(2)} `
                 ))
            }
