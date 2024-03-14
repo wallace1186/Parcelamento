@@ -8,8 +8,8 @@ function calcularParcelas() {
 
    
    if (parcelamento.parteValor.toLowerCase() === "sim") {
-      parcelamento.valorAdiantado = parseInt(prompt("Quanto gostaria de adiantar?"));
-      parcelamento.valorParcela = (parcelamento.valor - parcelamento.valorAdiantado) / parcelamento.qtdParcelas;
+      parcelamento.parteValor = parseInt(prompt("Quanto gostaria de adiantar?"));
+      parcelamento.valorParcela = (parcelamento.valor - parcelamento.parteValor) / parcelamento.qtdParcelas;
    } else {
       parcelamento.valorParcela = parcelamento.valor / parcelamento.qtdParcelas;
    }
