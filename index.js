@@ -1,42 +1,22 @@
 function calcularParcelas() {
-   let valorProduto = parseInt(prompt("Informe o valor do produto"));
-   let qtdParcelas = parseInt(prompt("Informe a quantidade de parcelas"));
-   let parteValor = prompt("Deseja dar um valor de entrada?");
-   
-   if (parteValor.toLowerCase(parteValor) === "sim") {
-      let valorAdiantado = parseInt(prompt("Quanto gostaria de adiantar?"));
-      
-      let calcularParcelas = (valorProduto - valorAdiantado) / qtdParcelas;
-      
-      for (let i = 0; i < qtdParcelas; i++) {
-         console.log((
-            ` Parcela ${
-               i + 1
-             }/${qtdParcelas } parcelas de R$ ${calcularParcelas.toFixed(2)} `
-             ))
-             alert ((` Parcela ${
-               i + 1
-             }/${qtdParcelas } parcelas de R$ ${calcularParcelas.toFixed(2)} `))
-          }
-       }
-       else {
-        let parcelasSemEntrada = valorProduto / qtdParcelas
- 
-        for (let i = 0; i < qtdParcelas; i++) {
-          console.log((
-             ` Parcela ${
-               i + 1
-              }/${qtdParcelas} parcelas de R$ ${parcelasSemEntrada.toFixed(2)} `
-              ))
-              alert ((
-               ` Parcela ${
-                 i + 1
-                }/${qtdParcelas} parcelas de R$ ${parcelasSemEntrada.toFixed(2)} `
-                ))
-           }
-     }
- 
- } 
- 
- calcularParcelas()
+   // Definindo o objeto para representar o parcelamento
+   let parcelamento = {
+      valor: parseInt(prompt("Informe o valor do parcelamento")),
+      qtdParcelas: parseInt(prompt("Informe a quantidade de parcelas")),
+      parteValor: prompt("Deseja dar um valor de entrada?")
+   };
 
+   
+   if (parcelamento.parteValor.toLowerCase() === "sim") {
+      parcelamento.valorAdiantado = parseInt(prompt("Quanto gostaria de adiantar?"));
+      parcelamento.valorParcela = (parcelamento.valor - parcelamento.valorAdiantado) / parcelamento.qtdParcelas;
+   } else {
+      parcelamento.valorParcela = parcelamento.valor / parcelamento.qtdParcelas;
+   }
+   for (let i = 0; i < parcelamento.qtdParcelas; i++) {
+      console.log(`Parcela ${i + 1}/${parcelamento.qtdParcelas} parcelas de R$ ${parcelamento.valorParcela.toFixed(2)}`);
+      alert(`Parcela ${i + 1}/${parcelamento.qtdParcelas} parcelas de R$ ${parcelamento.valorParcela.toFixed(2)}`);
+   }
+}
+
+calcularParcelas();
