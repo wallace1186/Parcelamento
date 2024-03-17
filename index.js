@@ -1,25 +1,47 @@
 function calcularParcelas() {
-   // Definindo o objeto para representar o parcelamento
-   let parcelamento = {
-      valor: parseInt(prompt("Informe o valor do parcelamento")),
-      qtdParcelas: parseInt(prompt("Informe a quantidade de parcelas")),
-      parteValor: prompt("Deseja dar um valor de entrada?")
-   };
 
-
-   if (parcelamento.parteValor.toLowerCase() === "sim") {
-      parcelamento.parteValor = parseInt(prompt("Quanto gostaria de adiantar?"));
-      parcelamento.valorParcela = (parcelamento.valor - parcelamento.parteValor) / parcelamento.qtdParcelas;
-   } else {
-      parcelamento.valorParcela = parcelamento.valor / parcelamento.qtdParcelas;
+   function Parcela(nome,valor, qtdParcelas, parteValor) {
+      this.nome = nome;
+      this.valor = valor;
+      this.qtdParcelas = qtdParcelas;
+      this.parteValor = parteValor;
    }
-   console.log(`Valor total de debito: ${parcelamento.valor}\nValor de entrada: ${parcelamento.parteValor}\nValor parcelado: ${parcelamento.valor - parcelamento.parteValor}`)
 
-   for (let i = 0; i < parcelamento.qtdParcelas; i++) {
 
-      console.log(`${parcelamento.qtdParcelas} parcelas de R$ ${parcelamento.valorParcela.toFixed(2)}`);
-      alert(`${parcelamento.qtdParcelas} parcelas de R$ ${parcelamento.valorParcela.toFixed(2)}`);
+   let resposta = true
+   let arrayParcelas = []
+   
+   let contador = 0
+   while (resposta) {
+      
+      let nome = prompt("Digite seu nome")
+      let valor = parseInt(prompt("Informe o valor total do produto"))
+      let qtdParcelas = parseInt(prompt("Informe a quantidade de parcelas"))
+      let parteValor = prompt("Deseja dar um valor de entrada?")
+
+      const Pessoa01 = new Parcela(nome, valor, qtdParcelas, parteValor)
+
+      if (Pessoa01.parteValor.toLowerCase() === "sim") {
+         Pessoa01.parteValor = parseInt(prompt("Quanto gostaria de adiantar?"));
+         Pessoa01.valorParcela = (Pessoa01.valor - Pessoa01.parteValor) / Pessoa01.qtdParcelas;
+      } else {
+         Pessoa01.valorParcela = Pessoa01.valor / Pessoa01.qtdParcelas;
+      }
+
+      arrayParcelas[contador] = Pessoa01
+      contador++
+
+      let sair = prompt("Deseja SAIR?")
+      if (sair == "sim") {
+         resposta = false
+
+         arrayParcelas.forEach(element => {
+            console.log(element)
+         });
+      }
+
    }
+
 
 
 }
