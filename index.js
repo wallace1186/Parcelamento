@@ -1,10 +1,15 @@
 function calcularParcelas() {
 
-   function Parcela(nome,valor, qtdParcelas, parteValor) {
-      this.nome = nome;
-      this.valor = valor;
-      this.qtdParcelas = qtdParcelas;
-      this.parteValor = parteValor;
+   class parcelamento{
+
+      constructor (nome,valor, qtdParcelas, valorEntrada) {
+         this.nome = nome;
+         this.valor = valor;
+         this.qtdParcelas = qtdParcelas;
+         this.valorEntrada = valorEntrada;
+   }
+
+    
    }
 
 
@@ -14,16 +19,16 @@ function calcularParcelas() {
    let contador = 0
    while (resposta) {
       
-      let nome = prompt("Digite seu nome")
+      let nome = prompt("Digite seu nome                                                                                                                           ")
       let valor = parseInt(prompt("Informe o valor total do produto"))
       let qtdParcelas = parseInt(prompt("Informe a quantidade de parcelas"))
-      let parteValor = prompt("Deseja dar um valor de entrada?")
+      let valorEntrada = prompt("Deseja dar um valor de entrada?")
 
-      const Pessoa01 = new Parcela(nome, valor, qtdParcelas, parteValor)
+      const Pessoa01 = new parcelamento(nome, valor, qtdParcelas, valorEntrada)
 
-      if (Pessoa01.parteValor.toLowerCase() === "sim") {
-         Pessoa01.parteValor = parseInt(prompt("Quanto gostaria de adiantar?"));
-         Pessoa01.valorParcela = (Pessoa01.valor - Pessoa01.parteValor) / Pessoa01.qtdParcelas;
+      if (Pessoa01.valorEntrada.toLowerCase() === "sim") {
+         Pessoa01.valorEntrada = parseInt(prompt("Quanto gostaria de adiantar?"));
+         Pessoa01.valorParcela = (Pessoa01.valor - Pessoa01.valorEntrada) / Pessoa01.qtdParcelas;
       } else {
          Pessoa01.valorParcela = Pessoa01.valor / Pessoa01.qtdParcelas;
       }
@@ -37,7 +42,9 @@ function calcularParcelas() {
 
          arrayParcelas.forEach(element => {
             console.log(element)
-         });
+           
+         })
+         
       }
 
    }
