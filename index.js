@@ -1,56 +1,64 @@
-function calcularParcelas() {
 
-   class parcelamento{
 
-      constructor (nome,valor, qtdParcelas, valorEntrada) {
-         this.nome = nome;
-         this.valor = valor;
-         this.qtdParcelas = qtdParcelas;
-         this.valorEntrada = valorEntrada;
+class cliente {
+   constructor(nome, valor, qtdParcelas, valorEntrada) {
+      this.nome = nome;
+      this.valor = valor;
+      this.qtdParcelas = qtdParcelas;
+      this.valorEntrada = valorEntrada;
    }
 
-    
-   }
+   calcularParcelas() { alert("Bem vindo ao simulador de parcelamento.")
 
 
-   let resposta = true
-   let arrayParcelas = []
-   
-   let contador = 0
-   while (resposta) {
-      
-      let nome = prompt("Digite seu nome                                                                                                                           ")
-      let valor = parseInt(prompt("Informe o valor total do produto"))
-      let qtdParcelas = parseInt(prompt("Informe a quantidade de parcelas"))
-      let valorEntrada = prompt("Deseja dar um valor de entrada?")
+      {
 
-      const Pessoa01 = new parcelamento(nome, valor, qtdParcelas, valorEntrada)
+         let resposta = true
+         let arrayParcelas = []
 
-      if (Pessoa01.valorEntrada.toLowerCase() === "sim") {
-         Pessoa01.valorEntrada = parseInt(prompt("Quanto gostaria de adiantar?"));
-         Pessoa01.valorParcela = (Pessoa01.valor - Pessoa01.valorEntrada) / Pessoa01.qtdParcelas;
-      } else {
-         Pessoa01.valorParcela = Pessoa01.valor / Pessoa01.qtdParcelas;
+         let contador = 0
+
+
+
+         while (resposta) {
+
+            let nome = prompt("Digite seu nome:")
+            let valor = parseInt(prompt("Informe o valor total do produto:"))
+            let qtdParcelas = parseInt(prompt("Informe a quantidade de parcelas:"))
+            let valorEntrada = prompt("Deseja dar um valor de entrada? sim/não")
+
+            const cliente1 = new cliente(nome, valor, qtdParcelas, valorEntrada)
+
+
+
+            if (cliente1.valorEntrada.toLowerCase() === "sim") {
+               cliente1.valorEntrada = parseInt(prompt("Quanto gostaria de adiantar?"));
+               cliente1.valorParcela = (cliente1.valor - cliente1.valorEntrada) / cliente1.qtdParcelas;
+            } else {
+               cliente1.valorParcela = cliente1.valor / cliente1.qtdParcelas;
+            }
+
+            arrayParcelas[contador] = cliente1
+            contador++
+
+            let simularNovamente = prompt("Deseja simular novamente? sim/não")
+            if (simularNovamente == "não") {
+               resposta = false;
+
+               arrayParcelas.forEach(element => {
+                  console.log(element)
+
+               })
+            }
+
+         }
+
       }
 
-      arrayParcelas[contador] = Pessoa01
-      contador++
-
-      let sair = prompt("Deseja SAIR?")
-      if (sair == "sim") {
-         resposta = false
-
-         arrayParcelas.forEach(element => {
-            console.log(element)
-           
-         })
-         
-      }
-
    }
-
 
 
 }
 
-calcularParcelas();
+const cliente1 = new cliente();
+cliente1.calcularParcelas();
